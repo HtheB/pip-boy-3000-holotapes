@@ -1,19 +1,18 @@
 (function () {
-  var GAME = 'HOLO/BRKBNCE/GAME.JS',
-    timer;
+  const GAME = 'HOLO/BRKBNCE/GAME.JS';
+  let timer;
+  // The debug dump is optional on a normal install.
   try {
     fs.unlink('SETTINGS/BB_DBG.TXT');
   } catch (e) {}
   function run() {
-    var p = global.__bbLaunch;
+    const p = global.__bbLaunch;
     global.__bbReturn = void 0;
     global.__bbLaunch = void 0;
     timer = void 0;
     try {
       Pip.remove();
-      try {
-        Pip.CURRENT = 0;
-      } catch (e) {}
+      Pip.CURRENT = 0;
       E.defrag();
       Pip.CURRENT = eval(fs.readFileSync(GAME))(p);
     } catch (e) {

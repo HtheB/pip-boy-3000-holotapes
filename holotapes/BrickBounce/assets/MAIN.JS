@@ -136,41 +136,23 @@
   }
   function rv() {
     let v = 20;
-    try {
-      if (Pip.settings && typeof Pip.settings.volume === 'number')
-        v = Pip.settings.volume;
-    } catch (e) {}
+    if (Pip.settings && typeof Pip.settings.volume === 'number')
+      v = Pip.settings.volume;
     v = Math.round((v * 10) / 27) * 10;
     return v < 0 ? 0 : v > 100 ? 100 : v;
   }
   function ds() {
-    try {
-      return db || (db = eval(fs.readFileSync(DB))());
-    } catch (e) {
-      return 0;
-    }
-  }
-  function jr(f) {
-    try {
-      let s = ds();
-      return s ? s(f) : 0;
-    } catch (e) {
-      return 0;
-    }
+    return db || (db = eval(fs.readFileSync(DB))());
   }
   function jw(f, s) {
-    try {
-      global.__bbSaveFile = f;
-      global.__bbSaveData = s;
-      eval(fs.readFileSync(DW));
-      let ok = global.__bbSaveResult;
-      delete global.__bbSaveFile;
-      delete global.__bbSaveData;
-      delete global.__bbSaveResult;
-      return ok;
-    } catch (e) {
-      return 0;
-    }
+    global.__bbSaveFile = f;
+    global.__bbSaveData = s;
+    eval(fs.readFileSync(DW));
+    let ok = global.__bbSaveResult;
+    delete global.__bbSaveFile;
+    delete global.__bbSaveData;
+    delete global.__bbSaveResult;
+    return ok;
   }
   function bf() {
     try {
@@ -243,17 +225,16 @@
     }, 80);
   }
   function ls() {
-    let e = jr(SF) || {},
-      p = jr(PF),
+    let e = ds()(SF) || {},
+      p = ds()(PF),
       t = 0;
     if (p) {
       for (let k in p) e[k] = p[k];
-      if (jw(SF, e))
-        try {
-          if (fs.statSync(PF)) fs.unlink(PF);
-          if (fs.statSync(PF + '.tmp')) fs.unlink(PF + '.tmp');
-          if (fs.statSync(PF + '.bak')) fs.unlink(PF + '.bak');
-        } catch (x) {}
+      if (jw(SF, e)) {
+        if (fs.statSync(PF)) fs.unlink(PF);
+        if (fs.statSync(PF + '.tmp')) fs.unlink(PF + '.tmp');
+        if (fs.statSync(PF + '.bak')) fs.unlink(PF + '.bak');
+      }
     }
     ((scores =
       e && e.scores
@@ -296,7 +277,7 @@
       (pe = 0),
       (sr = 0));
     for (let i = 0; i < 3; i++) {
-      t = jr(rn(i));
+      t = ds()(rn(i));
       if (t && t.p && !pe) {
         pe = t.p;
         sl = i;
@@ -307,34 +288,32 @@
   }
   function sv() {
     ns();
-    try {
-      let k = jr(SF) || {},
-        n = {
-          sound: so ? 1 : 0,
-          music: mo ? 1 : 0,
-          vol: vo,
-          disp: dp ? 1 : 0,
-          bt: bt,
-          ps: psp,
-          bcl: bcl,
-          bcu: bcl > 0 ? 1 : 0,
-          sh: k.sh || 0,
-          shs: k.shs || 0,
-          fh: k.fh || 0,
-          rh: k.rh || 0,
-          mpv: k.mpv === void 0 ? 70 : k.mpv,
-          scores: scores,
-          u: un,
-          ib: ib,
-          ce: ce ? 1 : 0,
-          ul: ul ? 1 : 0,
-          csp: csp,
-          cpa: cpa,
-          cpb: cpb ? 1 : 0,
-          csn: csn ? 1 : 0,
-        };
-      jw(SF, n);
-    } catch (e) {}
+    let k = ds()(SF) || {},
+      n = {
+        sound: so ? 1 : 0,
+        music: mo ? 1 : 0,
+        vol: vo,
+        disp: dp ? 1 : 0,
+        bt: bt,
+        ps: psp,
+        bcl: bcl,
+        bcu: bcl > 0 ? 1 : 0,
+        sh: k.sh || 0,
+        shs: k.shs || 0,
+        fh: k.fh || 0,
+        rh: k.rh || 0,
+        mpv: k.mpv === void 0 ? 70 : k.mpv,
+        scores: scores,
+        u: un,
+        ib: ib,
+        ce: ce ? 1 : 0,
+        ul: ul ? 1 : 0,
+        csp: csp,
+        cpa: cpa,
+        cpb: cpb ? 1 : 0,
+        csn: csn ? 1 : 0,
+      };
+    jw(SF, n);
   }
   function sq() {
     return sc > 0 && (scores.length < 10 || sc > scores[scores.length - 1].s);
@@ -432,7 +411,7 @@
     try {
       if (!global.__bbUi1)
         global.__bbUi1 = Function(
-          "var e=E.openFile('HOLO/BRKBNCE/UI1.BIN','r'),n=38144,t=new Uint8Array(h.buffer),o=e.read(256);while(o){t.set(o,n);n-=256;o=e.read(256)}e.close();",
+          "let e=E.openFile('HOLO/BRKBNCE/UI1.BIN','r'),n=38144,t=new Uint8Array(h.buffer),o=e.read(256);while(o){t.set(o,n);n-=256;o=e.read(256)}e.close();",
         );
       global.__bbUi1();
       if (p)
@@ -795,7 +774,7 @@
     try {
       if (!global.__bbUi2)
         global.__bbUi2 = Function(
-          "var e=E.openFile('HOLO/BRKBNCE/UI2.BIN','r'),n=38144,t=new Uint8Array(h.buffer),o=e.read(256);while(o){t.set(o,n);n-=256;o=e.read(256)}e.close();h.flip();Pip.lastFlip=getTime();",
+          "let e=E.openFile('HOLO/BRKBNCE/UI2.BIN','r'),n=38144,t=new Uint8Array(h.buffer),o=e.read(256);while(o){t.set(o,n);n-=256;o=e.read(256)}e.close();h.flip();Pip.lastFlip=getTime();",
         );
       global.__bbUi2();
     } catch (e) {
@@ -914,7 +893,7 @@
     global.__bbDemoDisp = dp ? 1 : 0;
     E.defrag();
     global.__bbLoadDemo = Function(
-      'var hi=global.__bbDemoHigh||0,di=global.__bbDemoDisp!==0;global.__bbDemoHigh=0;global.__bbDemoDisp=1;try{Pip.CURRENT=0}catch(e){}E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/DEMO.JS"))({high:hi,disp:di?1:0});',
+      'let hi=global.__bbDemoHigh||0,di=global.__bbDemoDisp!==0;global.__bbDemoHigh=0;global.__bbDemoDisp=1;Pip.CURRENT=0;E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/DEMO.JS"))({high:hi,disp:di?1:0});',
     );
     lt = setTimeout(global.__bbLoadDemo, 20);
   }
@@ -1100,7 +1079,7 @@
       (Pip.lastFlip = getTime()));
     if (!global.__bbLoadStart)
       global.__bbLoadStart = Function(
-        'try{Pip.audioStop()}catch(e){}Pip.remove();try{Pip.CURRENT=0}catch(e){}E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/START.JS"))();',
+        'try{Pip.audioStop()}catch(e){}Pip.remove();Pip.CURRENT=0;E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/START.JS"))();',
       );
     lt = setTimeout(global.__bbLoadStart, 20);
   }
@@ -1130,7 +1109,7 @@
       (Pip.lastFlip = getTime()));
     if (!global.__bbLoadPong)
       global.__bbLoadPong = Function(
-        'var p=global.__bbPong;global.__bbPong=0;try{Pip.audioStop()}catch(e){}Pip.remove();try{Pip.CURRENT=0}catch(e){}E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/PONG.JS"))(p);',
+        'let p=global.__bbPong;global.__bbPong=0;try{Pip.audioStop()}catch(e){}Pip.remove();Pip.CURRENT=0;E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/PONG.JS"))(p);',
       );
     lt = setTimeout(global.__bbLoadPong, 20);
   }
@@ -1160,10 +1139,10 @@
       (Pip.lastFlip = getTime()));
     global.__bbLoadMini = 0;
     global.__bbMiniPhase2 = Function(
-      'var p=global.__bbMini;global.__bbMini=0;delete global.__bbMiniPhase1;delete global.__bbMiniPhase2;try{Pip.audioStop()}catch(e){}try{Pip.CURRENT=0}catch(e){}E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/"+p.f))(p);',
+      'let p=global.__bbMini;global.__bbMini=0;delete global.__bbMiniPhase1;delete global.__bbMiniPhase2;try{Pip.audioStop()}catch(e){}Pip.CURRENT=0;E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/"+p.f))(p);',
     );
     global.__bbMiniPhase1 = Function(
-      'var c=Pip.CURRENT;try{c&&c.remove&&c.remove()}catch(e){}try{Pip.CURRENT=0}catch(e){}E.defrag();setTimeout(global.__bbMiniPhase2,80);',
+      'let c=Pip.CURRENT;try{c&&c.remove&&c.remove()}catch(e){}Pip.CURRENT=0;E.defrag();setTimeout(global.__bbMiniPhase2,80);',
     );
     lt = setTimeout(global.__bbMiniPhase1, 20);
   }

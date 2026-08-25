@@ -302,7 +302,7 @@
     Pip.lastFlip = getTime();
     E.defrag();
     global.__bbUploadBack = Function(
-      "delete global.__bbUploadBack;try{Pip.CURRENT=0}catch(e){}E.defrag();Pip.CURRENT=eval(fs.readFileSync('HOLO/BRKBNCE/APP.JS'))({view:'scores'});",
+      "delete global.__bbUploadBack;Pip.CURRENT=0;E.defrag();Pip.CURRENT=eval(fs.readFileSync('HOLO/BRKBNCE/APP.JS'))({view:'scores'});",
     );
     to = setTimeout(global.__bbUploadBack, 40);
   }

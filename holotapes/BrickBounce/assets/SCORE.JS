@@ -94,34 +94,14 @@
     } catch (e) {}
   }
   function ds() {
-    try {
-      return db || (db = eval(fs.readFileSync(DB))());
-    } catch (e) {
-      return 0;
-    }
-  }
-  function jr() {
-    try {
-      let s = ds();
-      return s ? s(SF) : 0;
-    } catch (e) {
-      return 0;
-    }
-  }
-  function jw(f, s) {
-    try {
-      let d = ds();
-      return d ? d(f, s) : 0;
-    } catch (e) {
-      return 0;
-    }
+    return db || (db = eval(fs.readFileSync(DB))());
   }
   function hi() {
     ns();
     return scores.length ? scores[0].s : 0;
   }
   function ld() {
-    let s = jr();
+    let s = ds()(SF);
     scores =
       s && s.scores
         ? s.scores
@@ -143,16 +123,14 @@
   }
   function sv() {
     ns();
-    try {
-      let s = jr() || {};
-      s.sound = so ? 1 : 0;
-      s.music = mo ? 1 : 0;
-      s.vol = vol;
-      s.disp = dp ? 1 : 0;
-      s.scores = scores;
-      s.u = un;
-      jw(SF, s);
-    } catch (e) {}
+    let s = ds()(SF) || {};
+    s.sound = so ? 1 : 0;
+    s.music = mo ? 1 : 0;
+    s.vol = vol;
+    s.disp = dp ? 1 : 0;
+    s.scores = scores;
+    s.u = un;
+    ds()(SF, s);
   }
   function snd(k) {
     if (so)
@@ -275,7 +253,7 @@
     E.defrag();
     if (!global.__bbLoadTitle)
       global.__bbLoadTitle = Function(
-        'delete global.__bbLoadTitle;try{Pip.CURRENT=0}catch(e){}E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/APP.JS"))({keepMusic:1});',
+        'delete global.__bbLoadTitle;Pip.CURRENT=0;E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/APP.JS"))({keepMusic:1});',
       );
     to = setTimeout(global.__bbLoadTitle, 20);
   }

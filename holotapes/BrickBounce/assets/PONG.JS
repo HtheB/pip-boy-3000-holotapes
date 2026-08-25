@@ -47,29 +47,14 @@
     } catch (e) {}
   }
   function ds() {
-    try {
-      return db || (db = eval(fs.readFileSync(DB))());
-    } catch (e) {
-      return 0;
-    }
-  }
-  function jr() {
-    try {
-      let s = ds();
-      return s ? s(SF) : {};
-    } catch (e) {
-      return {};
-    }
+    return db || (db = eval(fs.readFileSync(DB))());
   }
   function sv() {
-    let s = jr();
+    let s = ds()(SF) || {};
     s.sound = so ? 1 : 0;
     s.music = mo ? 1 : 0;
     s.vol = vol;
-    try {
-      let d = ds();
-      if (d) d(SF, s);
-    } catch (e) {}
+    ds()(SF, s);
   }
   function bf() {
     try {
@@ -319,7 +304,7 @@
     E.defrag();
     if (!global.__bbPongBack)
       global.__bbPongBack = Function(
-        'delete global.__bbPongBack;try{Pip.CURRENT=0}catch(e){}E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/APP.JS"))({view:"main"});',
+        'delete global.__bbPongBack;Pip.CURRENT=0;E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/APP.JS"))({view:"main"});',
       );
     mt = setTimeout(global.__bbPongBack, 20);
   }

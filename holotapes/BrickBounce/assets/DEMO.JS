@@ -180,7 +180,7 @@
     E.defrag();
     if (!global.__bbDemoBack)
       global.__bbDemoBack = Function(
-        'delete global.__bbDemoBack;try{Pip.CURRENT=0}catch(e){}E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/APP.JS"))({keepMusic:1});',
+        'delete global.__bbDemoBack;Pip.CURRENT=0;E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/APP.JS"))({keepMusic:1});',
       );
     tm = setTimeout(global.__bbDemoBack, 20);
   }

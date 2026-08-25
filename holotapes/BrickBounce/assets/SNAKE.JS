@@ -40,32 +40,17 @@
     return Math.max(a, Math.min(b, v));
   }
   function ds() {
-    try {
-      return db || (db = eval(fs.readFileSync(DB))());
-    } catch (e) {
-      return 0;
-    }
-  }
-  function jr() {
-    try {
-      let s = ds();
-      return s ? s(SF) : {};
-    } catch (e) {
-      return {};
-    }
+    return db || (db = eval(fs.readFileSync(DB))());
   }
   function sv() {
-    let s = jr(),
+    let s = ds()(SF) || {},
       m = Math.max(hs[0], hs[1]);
     s.sound = so ? 1 : 0;
     s.music = mo ? 1 : 0;
     s.vol = vol;
     s.sh = m;
     s.shs = { wall: hs[0], wrap: hs[1] };
-    try {
-      let d = ds();
-      if (d) d(SF, s);
-    } catch (e) {}
+    ds()(SF, s);
   }
   function av() {
     try {
@@ -331,7 +316,7 @@
     E.defrag();
     if (!global.__bbSnakeBack)
       global.__bbSnakeBack = Function(
-        'delete global.__bbSnakeBack;try{Pip.CURRENT=0}catch(e){}E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/APP.JS"))();',
+        'delete global.__bbSnakeBack;Pip.CURRENT=0;E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/APP.JS"))();',
       );
     mt = setTimeout(global.__bbSnakeBack, 20);
   }
@@ -417,7 +402,7 @@
     br();
     db = 0;
   }
-  let s = jr(),
+  let s = ds()(SF),
     q = s && s.shs;
   if (q) hs = [q.wall || q.w || 0, q.wrap || q.b || 0];
   else hs = [(s && s.sh) || 0, 0];

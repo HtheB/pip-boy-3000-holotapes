@@ -39,31 +39,16 @@
     return Math.max(a, Math.min(b, n));
   }
   function ds() {
-    try {
-      return db || (db = eval(fs.readFileSync(DB))());
-    } catch (e) {
-      return 0;
-    }
-  }
-  function jr() {
-    try {
-      let s = ds();
-      return s ? s(SF) : {};
-    } catch (e) {
-      return {};
-    }
+    return db || (db = eval(fs.readFileSync(DB))());
   }
   function sv() {
-    let s = jr();
+    let s = ds()(SF) || {};
     s.sound = so ? 1 : 0;
     s.music = mo ? 1 : 0;
     s.vol = vol;
     s.disp = dp ? 1 : 0;
     s.ps = psp;
-    try {
-      let d = ds();
-      if (d) d(SF, s);
-    } catch (e) {}
+    ds()(SF, s);
   }
   function load() {
     try {
@@ -470,7 +455,7 @@
     E.defrag();
     if (!global.__bbCustomStart)
       global.__bbCustomStart = Function(
-        'delete global.__bbCustomStart;try{Pip.CURRENT=0}catch(e){}E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/START.JS"))();',
+        'delete global.__bbCustomStart;Pip.CURRENT=0;E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/START.JS"))();',
       );
     mt = setTimeout(global.__bbCustomStart, 20);
   }
@@ -482,7 +467,7 @@
     E.defrag();
     if (!global.__bbCustomExit)
       global.__bbCustomExit = Function(
-        'delete global.__bbCustomExit;try{Pip.CURRENT=0}catch(e){}E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/APP.JS"))({view:"main",keepMusic:1});',
+        'delete global.__bbCustomExit;Pip.CURRENT=0;E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/APP.JS"))({view:"main",keepMusic:1});',
       );
     mt = setTimeout(global.__bbCustomExit, 20);
   }
@@ -643,7 +628,7 @@
     if (!k) Pip.audioStop();
     db = 0;
   }
-  let s = jr();
+  let s = ds()(SF);
   so = !s || s.sound !== 0;
   mo = !s || s.music !== 0;
   vol = s && s.vol !== void 0 ? s.vol : 70;

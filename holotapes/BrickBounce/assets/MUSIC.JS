@@ -14,19 +14,7 @@
     return Math.max(a, Math.min(b, n));
   }
   function ds() {
-    try {
-      return db || (db = eval(fs.readFileSync(DB))());
-    } catch (e) {
-      return 0;
-    }
-  }
-  function jr() {
-    try {
-      let s = ds();
-      return s ? s(SF) : {};
-    } catch (e) {
-      return {};
-    }
+    return db || (db = eval(fs.readFileSync(DB))());
   }
   function av(n) {
     try {
@@ -36,12 +24,9 @@
     } catch (e) {}
   }
   function sv() {
-    let s = jr();
+    let s = ds()(SF) || {};
     s.mpv = vol;
-    try {
-      let d = ds();
-      if (d) d(SF, s);
-    } catch (e) {}
+    ds()(SF, s);
   }
   function list() {
     return [
@@ -113,7 +98,7 @@
     E.defrag();
     if (!global.__bbMusicBack)
       global.__bbMusicBack = Function(
-        'delete global.__bbMusicBack;try{Pip.CURRENT=0}catch(e){}E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/APP.JS"))();',
+        'delete global.__bbMusicBack;Pip.CURRENT=0;E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/APP.JS"))();',
       );
     mt = setTimeout(global.__bbMusicBack, 20);
   }
@@ -156,7 +141,7 @@
     } catch (e) {}
     db = 0;
   }
-  let s = jr();
+  let s = ds()(SF);
   vol = s && s.mpv !== void 0 ? s.mpv : 70;
   master = s && s.vol !== void 0 ? s.vol : master;
   av(vol);

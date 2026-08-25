@@ -147,34 +147,25 @@
   function rn() {
     return RUN + (sl + 1) + '.DAT';
   }
-  function jr() {
-    return cfg || {};
-  }
   function jw(f, s) {
-    try {
-      if (f === SF) {
-        cfg = s;
-        f = PF;
-      }
-      global.__bbSaveFile = f;
-      global.__bbSaveData = s;
-      global.__bbSaveResult = 0;
-      eval(fs.readFileSync(DW));
-      let ok = global.__bbSaveResult;
-      delete global.__bbSaveResult;
-      return ok;
-    } catch (e) {
-      return 0;
+    if (f === SF) {
+      cfg = s;
+      f = PF;
     }
+    global.__bbSaveFile = f;
+    global.__bbSaveData = s;
+    global.__bbSaveResult = 0;
+    eval(fs.readFileSync(DW));
+    let ok = global.__bbSaveResult;
+    delete global.__bbSaveResult;
+    return ok;
   }
   function rv() {
-    let s = jr(),
+    let s = cfg || {},
       v = 20;
-    if (s && s.vol !== void 0) return cl(s.vol, 0, 100);
-    try {
-      if (Pip.settings && typeof Pip.settings.volume === 'number')
-        v = Pip.settings.volume;
-    } catch (e) {}
+    if (s.vol !== void 0) return cl(s.vol, 0, 100);
+    if (Pip.settings && typeof Pip.settings.volume === 'number')
+      v = Pip.settings.volume;
     return cl(Math.round((v * 10) / 27) * 10, 0, 100);
   }
   function av() {
@@ -187,7 +178,7 @@
     } catch (e) {}
   }
   function ws() {
-    let s = jr() || {};
+    let s = cfg || {};
     s.sound = sndOn ? 1 : 0;
     s.music = musOn ? 1 : 0;
     s.vol = vol;
@@ -203,7 +194,7 @@
     jw(SF, s);
   }
   function cg() {
-    let s = jr() || {};
+    let s = cfg || {};
     ce = s.ce ? 1 : 0;
     cz = 0;
     ul = s.ul ? 1 : 0;
@@ -476,7 +467,7 @@
     else sv(0);
   }
   function unlock(n) {
-    let s = jr() || {};
+    let s = cfg || {};
     if ((s.u || 0) < n) {
       s.u = n;
       jw(SF, s);
@@ -485,7 +476,7 @@
     return 0;
   }
   function ub() {
-    let s = jr() || {},
+    let s = cfg || {},
       l = s.bcl !== void 0 ? s.bcl : s.bcu ? 1 : 0;
     l = Math.max(0, Math.min(6, l));
     if (l < 6) {
@@ -497,7 +488,7 @@
     return 0;
   }
   function ib() {
-    let s = jr() || {};
+    let s = cfg || {};
     if (!s.ib) {
       s.ib = 1;
       jw(SF, s);
@@ -962,7 +953,7 @@
     E.defrag();
     if (!global.__bbCustomBack)
       global.__bbCustomBack = Function(
-        'delete global.__bbCustomBack;try{Pip.CURRENT=0}catch(e){}E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/CUSTOM.JS"))({returned:1});',
+        'delete global.__bbCustomBack;Pip.CURRENT=0;E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/CUSTOM.JS"))({returned:1});',
       );
     mt = setTimeout(global.__bbCustomBack, 20);
   }
@@ -1009,7 +1000,7 @@
     E.defrag();
     if (!global.__bbLoadName)
       global.__bbLoadName = Function(
-        'var p=global.__bbName;global.__bbName=0;try{Pip.audioStop()}catch(e){}Pip.remove();try{Pip.CURRENT=0}catch(e){}E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/NAME.JS"))(p);',
+        'let p=global.__bbName;global.__bbName=0;try{Pip.audioStop()}catch(e){}Pip.remove();Pip.CURRENT=0;E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/NAME.JS"))(p);',
       );
     mt = setTimeout(global.__bbLoadName, 250);
   }
@@ -1031,8 +1022,7 @@
       bc = ub();
       if (df === 3) sec = ib();
       else {
-        let s = jr();
-        sec = s && s.ib ? 1 : 0;
+        sec = cfg && cfg.ib ? 1 : 0;
       }
     }
     global.__bbWin = {
@@ -1073,7 +1063,7 @@
     E.defrag();
     if (!global.__bbLoadWin)
       global.__bbLoadWin = Function(
-        'var p=global.__bbWin;global.__bbWin=0;try{Pip.CURRENT=0}catch(e){}E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/VICT.JS"))(p);',
+        'let p=global.__bbWin;global.__bbWin=0;Pip.CURRENT=0;E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/VICT.JS"))(p);',
       );
     mt = setTimeout(global.__bbLoadWin, 20);
   }
@@ -1095,7 +1085,7 @@
     E.defrag();
     if (!global.__bbGameTitle)
       global.__bbGameTitle = Function(
-        'try{Pip.audioStop()}catch(e){}Pip.remove();try{Pip.CURRENT=0}catch(e){}E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/APP.JS"))();',
+        'try{Pip.audioStop()}catch(e){}Pip.remove();Pip.CURRENT=0;E.defrag();Pip.CURRENT=eval(fs.readFileSync("HOLO/BRKBNCE/APP.JS"))();',
       );
     mt = setTimeout(global.__bbGameTitle, 20);
   }
