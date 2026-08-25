@@ -204,79 +204,79 @@
     "storage": [
       {
         "name": "HOLO/BRKBNCE/APP.JS",
-        "url": "BrickBounce/app.min.js"
+        "url": "BrickBounce/assets/APP.MIN.JS"
       },
       {
         "name": "HOLO/BRKBNCE/MAIN.JS",
-        "url": "BrickBounce/assets/MAIN.JS"
+        "url": "BrickBounce/assets/MAIN.MIN.JS"
       },
       {
         "name": "HOLO/BRKBNCE/SAVE.JS",
-        "url": "BrickBounce/assets/SAVE.JS"
+        "url": "BrickBounce/assets/SAVE.MIN.JS"
       },
       {
         "name": "HOLO/BRKBNCE/SAVEW.JS",
-        "url": "BrickBounce/assets/SAVEW.JS"
+        "url": "BrickBounce/assets/SAVEW.MIN.JS"
       },
       {
         "name": "HOLO/BRKBNCE/START.JS",
-        "url": "BrickBounce/assets/START.JS"
+        "url": "BrickBounce/assets/START.MIN.JS"
       },
       {
         "name": "HOLO/BRKBNCE/GAME.JS",
-        "url": "BrickBounce/assets/GAME.JS"
+        "url": "BrickBounce/assets/GAME.MIN.JS"
       },
       {
         "name": "HOLO/BRKBNCE/DEMO.JS",
-        "url": "BrickBounce/assets/DEMO.JS"
+        "url": "BrickBounce/assets/DEMO.MIN.JS"
       },
       {
         "name": "HOLO/BRKBNCE/PONG.JS",
-        "url": "BrickBounce/assets/PONG.JS"
+        "url": "BrickBounce/assets/PONG.MIN.JS"
       },
       {
         "name": "HOLO/BRKBNCE/SNAKE.JS",
-        "url": "BrickBounce/assets/SNAKE.JS"
+        "url": "BrickBounce/assets/SNAKE.MIN.JS"
       },
       {
         "name": "HOLO/BRKBNCE/FLOATY.JS",
-        "url": "BrickBounce/assets/FLOATY.JS"
+        "url": "BrickBounce/assets/FLOATY.MIN.JS"
       },
       {
         "name": "HOLO/BRKBNCE/RUN.JS",
-        "url": "BrickBounce/assets/RUN.JS"
+        "url": "BrickBounce/assets/RUN.MIN.JS"
       },
       {
         "name": "HOLO/BRKBNCE/MUSIC.JS",
-        "url": "BrickBounce/assets/MUSIC.JS"
+        "url": "BrickBounce/assets/MUSIC.MIN.JS"
       },
       {
         "name": "HOLO/BRKBNCE/CUSTOM.JS",
-        "url": "BrickBounce/assets/CUSTOM.JS"
+        "url": "BrickBounce/assets/CUSTOM.MIN.JS"
       },
       {
         "name": "HOLO/BRKBNCE/VICT.JS",
-        "url": "BrickBounce/assets/VICT.JS"
+        "url": "BrickBounce/assets/VICT.MIN.JS"
       },
       {
         "name": "HOLO/BRKBNCE/HELP.JS",
-        "url": "BrickBounce/assets/HELP.JS"
+        "url": "BrickBounce/assets/HELP.MIN.JS"
       },
       {
         "name": "HOLO/BRKBNCE/NAME.JS",
-        "url": "BrickBounce/assets/NAME.JS"
+        "url": "BrickBounce/assets/NAME.MIN.JS"
       },
       {
         "name": "HOLO/BRKBNCE/UPLOAD.JS",
-        "url": "BrickBounce/assets/UPLOAD.JS"
+        "url": "BrickBounce/assets/UPLOAD.MIN.JS"
       },
       {
         "name": "HOLO/BRKBNCE/SCORE.JS",
-        "url": "BrickBounce/assets/SCORE.JS"
+        "url": "BrickBounce/assets/SCORE.MIN.JS"
       },
       {
         "name": "HOLO/BRKBNCE/BRICKS.JS",
-        "url": "BrickBounce/assets/BRICKS.JS"
+        "url": "BrickBounce/assets/BRICKS.MIN.JS"
       },
       {
         "name": "HOLO/BRKBNCE/LEVELS.TXT",

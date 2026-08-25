@@ -15,79 +15,79 @@
   "storage": [
     {
       "name": "HOLO/BRKBNCE/APP.JS",
-      "url": "app.min.js"
+      "url": "assets/APP.MIN.JS"
     },
     {
       "name": "HOLO/BRKBNCE/MAIN.JS",
-      "url": "assets/MAIN.JS"
+      "url": "assets/MAIN.MIN.JS"
     },
     {
       "name": "HOLO/BRKBNCE/SAVE.JS",
-      "url": "assets/SAVE.JS"
+      "url": "assets/SAVE.MIN.JS"
     },
     {
       "name": "HOLO/BRKBNCE/SAVEW.JS",
-      "url": "assets/SAVEW.JS"
+      "url": "assets/SAVEW.MIN.JS"
     },
     {
       "name": "HOLO/BRKBNCE/START.JS",
-      "url": "assets/START.JS"
+      "url": "assets/START.MIN.JS"
     },
     {
       "name": "HOLO/BRKBNCE/GAME.JS",
-      "url": "assets/GAME.JS"
+      "url": "assets/GAME.MIN.JS"
     },
     {
       "name": "HOLO/BRKBNCE/DEMO.JS",
-      "url": "assets/DEMO.JS"
+      "url": "assets/DEMO.MIN.JS"
     },
     {
       "name": "HOLO/BRKBNCE/PONG.JS",
-      "url": "assets/PONG.JS"
+      "url": "assets/PONG.MIN.JS"
     },
     {
       "name": "HOLO/BRKBNCE/SNAKE.JS",
-      "url": "assets/SNAKE.JS"
+      "url": "assets/SNAKE.MIN.JS"
     },
     {
       "name": "HOLO/BRKBNCE/FLOATY.JS",
-      "url": "assets/FLOATY.JS"
+      "url": "assets/FLOATY.MIN.JS"
     },
     {
       "name": "HOLO/BRKBNCE/RUN.JS",
-      "url": "assets/RUN.JS"
+      "url": "assets/RUN.MIN.JS"
     },
     {
       "name": "HOLO/BRKBNCE/MUSIC.JS",
-      "url": "assets/MUSIC.JS"
+      "url": "assets/MUSIC.MIN.JS"
     },
     {
       "name": "HOLO/BRKBNCE/CUSTOM.JS",
-      "url": "assets/CUSTOM.JS"
+      "url": "assets/CUSTOM.MIN.JS"
     },
     {
       "name": "HOLO/BRKBNCE/VICT.JS",
-      "url": "assets/VICT.JS"
+      "url": "assets/VICT.MIN.JS"
     },
     {
       "name": "HOLO/BRKBNCE/HELP.JS",
-      "url": "assets/HELP.JS"
+      "url": "assets/HELP.MIN.JS"
     },
     {
       "name": "HOLO/BRKBNCE/NAME.JS",
-      "url": "assets/NAME.JS"
+      "url": "assets/NAME.MIN.JS"
     },
     {
       "name": "HOLO/BRKBNCE/UPLOAD.JS",
-      "url": "assets/UPLOAD.JS"
+      "url": "assets/UPLOAD.MIN.JS"
     },
     {
       "name": "HOLO/BRKBNCE/SCORE.JS",
-      "url": "assets/SCORE.JS"
+      "url": "assets/SCORE.MIN.JS"
     },
     {
       "name": "HOLO/BRKBNCE/BRICKS.JS",
-      "url": "assets/BRICKS.JS"
+      "url": "assets/BRICKS.MIN.JS"
     },
     {
       "name": "HOLO/BRKBNCE/LEVELS.TXT",
