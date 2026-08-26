@@ -4,7 +4,7 @@
   "author": "@HtheB",
   "version": "1.0.0",
   "description": "An original arcade brick-breaker with 50 levels, power-ups, profiles, custom levels, and unlockable bonus games.",
-  "icon": "assets/icon.png",
+  "icon": "assets/brick-bounce-icon.png",
   "previews": [
     "assets/preview.png",
     "assets/gameplay.png",
