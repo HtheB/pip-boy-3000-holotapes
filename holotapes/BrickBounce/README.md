@@ -1,6 +1,6 @@
 # Brick Bounce
 
-![Brick Bounce title screen](assets/preview.png)
+![Brick Bounce title screen](pip-boy-3000-holotapes/holotapes/BrickBounce/assets/preview.png)
 
 Brick Bounce is an original arcade brick-breaker for the Pip-Boy 3000. Clear 50
 hand-built levels, collect power-ups, chase high scores, and unlock extra
@@ -8,9 +8,9 @@ content as you master the game.
 
 ## Screenshots
 
-![Brick Bounce gameplay](assets/gameplay.png)
+![Brick Bounce gameplay](pip-boy-3000-holotapes/holotapes/BrickBounce/assets/gameplay.png)
 
-![Brick Bounce local high-score entry](assets/initials.png)
+![Brick Bounce local high-score entry](pip-boy-3000-holotapes/holotapes/BrickBounce/assets/initials.png)
 
 ## Features
 
